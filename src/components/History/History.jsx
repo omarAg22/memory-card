@@ -1,4 +1,6 @@
+// components/History/History.jsx
 import { useState, useEffect } from "react";
+import { IoClose } from "react-icons/io5";
 import "./History.css";
 
 const History = () => {
@@ -10,6 +12,12 @@ const History = () => {
     );
     setHistory(savedHistory);
   }, []);
+
+  const deleteHistoryItem = (index) => {
+    const updatedHistory = history.filter((_, i) => i !== index);
+    setHistory(updatedHistory);
+    localStorage.setItem("gameHistory", JSON.stringify(updatedHistory));
+  };
 
   return (
     <div className="history">
@@ -23,6 +31,13 @@ const History = () => {
         <div className="history-list">
           {history.map((game, index) => (
             <div key={index} className="history-item">
+              <button
+                className="delete-button"
+                onClick={() => deleteHistoryItem(index)}
+                aria-label="Delete history item"
+              >
+                <IoClose />
+              </button>
               <p className="history-date">
                 Date: {new Date(game.date).toLocaleDateString()}
               </p>
