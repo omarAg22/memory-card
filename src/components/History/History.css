@@ -1,0 +1,22 @@
+.history {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.history-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.history-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.history-date {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}

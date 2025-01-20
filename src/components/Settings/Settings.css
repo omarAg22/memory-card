@@ -1,0 +1,50 @@
+.settings {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.setting-section {
+  margin-bottom: 2rem;
+}
+
+.setting-section h3 {
+  margin-bottom: 1rem;
+}
+
+.card-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.option-button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #2c3e50;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.option-button.active {
+  background: #2c3e50;
+  color: white;
+}
+
+.color-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.color-button {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #2c3e50;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.color-button.active {
+  border-width: 4px;
+}
