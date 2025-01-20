@@ -30,6 +30,23 @@ const Game = ({ settings }) => {
     setFlippedCards([]);
   }, [settings.cardCount]);
 
+  const saveGameResult = (endTimeValue) => {
+    const duration = Math.floor((endTimeValue - startTime) / 1000);
+    const score = Math.floor((settings.cardCount * 1000) / duration);
+    const gameResult = {
+      date: new Date().toISOString(),
+      cardCount: settings.cardCount,
+      duration,
+      score,
+    };
+
+    const history = JSON.parse(localStorage.getItem("gameHistory") || "[]");
+    localStorage.setItem(
+      "gameHistory",
+      JSON.stringify([...history, gameResult])
+    );
+  };
+
   const handleCardClick = (clickedCard) => {
     if (flippedCards.length === 2) return;
     if (flippedCards.includes(clickedCard.id)) return;
@@ -47,31 +64,16 @@ const Game = ({ settings }) => {
         setMatchedPairs([...matchedPairs, firstCard.id, secondCard.id]);
         setFlippedCards([]);
 
+        // Vérifie si le jeu est terminé
         if (matchedPairs.length + 2 === cards.length) {
-          setEndTime(Date.now());
-          saveGameResult();
+          const currentEndTime = Date.now();
+          setEndTime(currentEndTime);
+          saveGameResult(currentEndTime);
         }
       } else {
         setTimeout(() => setFlippedCards([]), 1000);
       }
     }
-  };
-
-  const saveGameResult = () => {
-    const duration = Math.floor((endTime - startTime) / 1000);
-    const score = Math.floor((settings.cardCount * 1000) / duration);
-    const gameResult = {
-      date: new Date().toISOString(),
-      cardCount: settings.cardCount,
-      duration,
-      score,
-    };
-
-    const history = JSON.parse(localStorage.getItem("gameHistory") || "[]");
-    localStorage.setItem(
-      "gameHistory",
-      JSON.stringify([...history, gameResult])
-    );
   };
 
   return (
