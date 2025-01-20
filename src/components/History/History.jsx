@@ -14,18 +14,25 @@ const History = () => {
   return (
     <div className="history">
       <h2>Game History</h2>
-      <div className="history-list">
-        {history.map((game, index) => (
-          <div key={index} className="history-item">
-            <p className="history-date">
-              Date: {new Date(game.date).toLocaleDateString()}
-            </p>
-            <p>Cards: {game.cardCount}</p>
-            <p>Duration: {game.duration} seconds</p>
-            <p>Score: {game.score} points</p>
-          </div>
-        ))}
-      </div>
+      {history.length === 0 ? (
+        <div className="empty-history">
+          <p>No games played yet!</p>
+          <p>Start playing to see your history here.</p>
+        </div>
+      ) : (
+        <div className="history-list">
+          {history.map((game, index) => (
+            <div key={index} className="history-item">
+              <p className="history-date">
+                Date: {new Date(game.date).toLocaleDateString()}
+              </p>
+              <p>Cards: {game.cardCount}</p>
+              <p>Duration: {game.duration} seconds</p>
+              <p>Score: {game.score} points</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

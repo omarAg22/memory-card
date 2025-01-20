@@ -20,3 +20,21 @@
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
+.empty-history {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.empty-history p:first-child {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.empty-history p:last-child {
+  color: #666;
+}
