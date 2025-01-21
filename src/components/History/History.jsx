@@ -1,4 +1,3 @@
-// components/History/History.jsx
 import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -35,12 +34,10 @@ const History = () => {
 
   const renderPageNumbers = () => {
     const pages = [];
-    const maxVisiblePages = 5; // Nombre de pages visibles en même temps
-
+    const maxVisiblePages = 5;
     let startPage = Math.max(1, currentPage - 2);
     let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
 
-    // Ajuster si on est près de la fin
     if (endPage - startPage < maxVisiblePages - 1) {
       startPage = Math.max(1, endPage - maxVisiblePages + 1);
     }
@@ -71,7 +68,12 @@ const History = () => {
         <>
           <div className="history-list">
             {currentItems.map((game, index) => (
-              <div key={index} className="history-item">
+              <div
+                key={index}
+                className={`history-item ${
+                  game.status === "success" ? "success" : "failure"
+                }`}
+              >
                 <button
                   className="delete-button"
                   onClick={() => deleteHistoryItem(index)}
@@ -85,10 +87,15 @@ const History = () => {
                 <p>Cards: {game.cardCount}</p>
                 <p>Duration: {game.duration} seconds</p>
                 <p>Score: {game.score} points</p>
+                <p>
+                  Trials: {game.trials + 1} / {game.maxTrials}
+                </p>
+                <p className="game-status">
+                  Status: {game.status === "success" ? "Victory!" : "Game Over"}
+                </p>
               </div>
             ))}
           </div>
-
           {totalPages > 1 && (
             <div className="pagination">
               <button
@@ -98,9 +105,7 @@ const History = () => {
               >
                 <IoIosArrowBack />
               </button>
-
               {renderPageNumbers()}
-
               <button
                 className="arrow-button"
                 onClick={() => goToPage(currentPage + 1)}

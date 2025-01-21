@@ -15,12 +15,37 @@
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.history-item.success {
+  background: linear-gradient(to right, white, #e8f5e9);
+  border-left: 4px solid #4caf50;
+}
+
+.history-item.failure {
+  background: linear-gradient(to right, white, #ffebee);
+  border-left: 4px solid #f44336;
+}
+
+.game-status {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.history-item.success .game-status {
+  color: #2e7d32;
+}
+
+.history-item.failure .game-status {
+  color: #c62828;
 }
 
 .history-date {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
+
 .empty-history {
   text-align: center;
   padding: 3rem;
@@ -39,6 +64,7 @@
 .empty-history p:last-child {
   color: #666;
 }
+
 .delete-button {
   position: absolute;
   top: 10px;
@@ -53,6 +79,7 @@
   justify-content: center;
   border-radius: 50%;
   transition: all 0.2s ease;
+  z-index: 1;
 }
 
 .delete-button:hover {
