@@ -53,7 +53,7 @@ Un jeu de cartes mémoire moderne et interactif construit avec React. Testez vot
 git clone https://github.com/omarAg22/memory-card.git
 
 # Installer les dépendances
-cd memory-game
+cd memory-card
 npm install
 
 # Lancer le serveur de développement
