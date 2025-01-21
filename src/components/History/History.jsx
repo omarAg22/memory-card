@@ -6,7 +6,7 @@ import "./History.css";
 const History = () => {
   const [history, setHistory] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 3;
 
   useEffect(() => {
     const savedHistory = JSON.parse(
@@ -15,9 +15,33 @@ const History = () => {
     setHistory(savedHistory);
   }, []);
 
+  useEffect(() => {
+    // Calculate max possible page based on current items
+    const maxPage = Math.ceil(history.length / itemsPerPage);
+
+    // If current page is greater than max page and history is not empty,
+    // set current page to max page or 1 if there are no pages
+    if (currentPage > maxPage && currentPage !== 1) {
+      setCurrentPage(Math.max(1, maxPage));
+    }
+  }, [history, currentPage]);
+
   const deleteHistoryItem = (index) => {
     const realIndex = (currentPage - 1) * itemsPerPage + index;
     const updatedHistory = history.filter((_, i) => i !== realIndex);
+
+    // Calculate if current page will be empty after deletion
+    const itemsInCurrentPage = history.filter((_, i) => {
+      const pageStartIndex = (currentPage - 1) * itemsPerPage;
+      const pageEndIndex = pageStartIndex + itemsPerPage;
+      return i >= pageStartIndex && i < pageEndIndex;
+    }).length;
+
+    // If this is the last item in the current page and we're not on page 1
+    if (itemsInCurrentPage === 1 && currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+
     setHistory(updatedHistory);
     localStorage.setItem("gameHistory", JSON.stringify(updatedHistory));
   };
@@ -88,7 +112,7 @@ const History = () => {
                 <p>Duration: {game.duration} seconds</p>
                 <p>Score: {game.score} points</p>
                 <p>
-                  Trials: {game.trials + 1} / {game.maxTrials}
+                  Trials: {game.trials} / {game.maxTrials}
                 </p>
                 <p className="game-status">
                   Status: {game.status === "success" ? "Victory!" : "Game Over"}
