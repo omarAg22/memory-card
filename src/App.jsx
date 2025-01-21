@@ -14,16 +14,16 @@ export default function App() {
   return (
     <div className="app" style={{ background: gameSettings.background }}>
       <nav className="navbar">
-        <h1 className="title">Memory Game</h1>
+        <h1 className="title">Jeu de Mémoire</h1>
         <div className="nav-links">
           <Link to="/" className="nav-link">
-            Game
+            Jeu
           </Link>
           <Link to="/settings" className="nav-link">
-            Settings
+            Paramètres
           </Link>
           <Link to="/history" className="nav-link">
-            History
+            Historique
           </Link>
         </div>
       </nav>

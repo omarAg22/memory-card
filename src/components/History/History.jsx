@@ -82,11 +82,11 @@ const History = () => {
 
   return (
     <div className="history">
-      <h2>Game History</h2>
+      <h2>Historique du Jeu</h2>
       {history.length === 0 ? (
         <div className="empty-history">
-          <p>No games played yet!</p>
-          <p>Start playing to see your history here.</p>
+          <p>Aucun jeu joué pour le moment !</p>
+          <p>Commencez à jouer pour voir votre historique ici.</p>
         </div>
       ) : (
         <>
@@ -108,14 +108,15 @@ const History = () => {
                 <p className="history-date">
                   Date: {new Date(game.date).toLocaleDateString()}
                 </p>
-                <p>Cards: {game.cardCount}</p>
-                <p>Duration: {game.duration} seconds</p>
-                <p>Score: {game.score} points</p>
+                <p>Cartes : {game.cardCount}</p>
+                <p>Durée : {game.duration} secondes</p>
+                <p>Score : {game.score} points</p>
                 <p>
-                  Trials: {game.trials} / {game.maxTrials}
+                  Essais : {game.trials} / {game.maxTrials}
                 </p>
                 <p className="game-status">
-                  Status: {game.status === "success" ? "Victory!" : "Game Over"}
+                  Statut :{" "}
+                  {game.status === "success" ? "Victoire !" : "Partie terminée"}
                 </p>
               </div>
             ))}
