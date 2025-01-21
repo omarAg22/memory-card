@@ -106,7 +106,7 @@ const History = () => {
                   <IoClose />
                 </button>
                 <p className="history-date">
-                  Date: {new Date(game.date).toLocaleDateString()}
+                  Date : {new Date(game.date).toLocaleDateString()}
                 </p>
                 <p>Cartes : {game.cardCount}</p>
                 <p>Durée : {game.duration} secondes</p>

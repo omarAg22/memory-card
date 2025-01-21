@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function App() {
   const [gameSettings, setGameSettings] = useState({
     cardCount: 16,
-    background: "#ffffff",
+    background: "#ecf0f1",
   });
 
   return (

@@ -6,10 +6,10 @@ const Settings = ({ settings, onSettingsChange }) => {
 
   return (
     <div className="settings">
-      <h2>Settings</h2>
+      <h2>Paramètres</h2>
 
       <div className="setting-section">
-        <h3>Number of Cards</h3>
+        <h3>Nombre de Cartes</h3>
         <div className="card-options">
           {cardCounts.map((count) => (
             <button
@@ -21,14 +21,14 @@ const Settings = ({ settings, onSettingsChange }) => {
                 settings.cardCount === count ? "active" : ""
               }`}
             >
-              {count} cards
+              {count} cartes
             </button>
           ))}
         </div>
       </div>
 
       <div className="setting-section">
-        <h3>Background Color</h3>
+        <h3>Couleur de Fond</h3>
         <div className="color-options">
           {backgrounds.map((color) => (
             <button
