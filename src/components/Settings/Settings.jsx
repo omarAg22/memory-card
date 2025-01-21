@@ -2,7 +2,7 @@ import "./Settings.css";
 
 const Settings = ({ settings, onSettingsChange }) => {
   const cardCounts = [4, 16, 32];
-  const backgrounds = ["#ffffff", "#f0f7ff", "#fff5f5", "#f0fff4"];
+  const backgrounds = ["#ecf0f1", "#d5e4f1", "#f9d5d5", "#d5f9e4"];
 
   return (
     <div className="settings">
