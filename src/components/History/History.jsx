@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 import "./History.css";
 
 const History = () => {
@@ -112,11 +113,14 @@ const History = () => {
                 <p>Durée : {game.duration} secondes</p>
                 <p>Score : {game.score} points</p>
                 <p>
-                  Essais : {game.trials + 1} / {game.maxTrials}
+                  Essais : {game.trials} / {game.maxTrials}
                 </p>
                 <p className="game-status">
-                  Statut :{" "}
-                  {game.status === "success" ? "Victoire !" : "Partie terminée"}
+                  {game.status === "success" ? (
+                    <FaThumbsUp />
+                  ) : (
+                    <FaThumbsDown />
+                  )}
                 </p>
               </div>
             ))}
