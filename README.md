@@ -64,6 +64,7 @@ npm run dev
 
 Structure du projet
 
+public/  
 src/  
 ├── components/  
 │ ├── Game/  
@@ -72,7 +73,11 @@ src/
 │ ├── Card/  
 │ │ ├── Card.jsx  
 │ │ └── Card.css  
-│ └── History/  
-│ ├── History.jsx  
-│ └── History.css  
-└── App.jsx
+│ ├── History/  
+│ │ ├── History.jsx  
+│ │ └── History.css  
+│ └── Navbar/  
+│ ├── Navbar.jsx  
+│ └── Navbar.css  
+├── App.jsx  
+├── App.css
