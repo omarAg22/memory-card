@@ -1,4 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 import Game from "./components/Game/Game";
 import Settings from "./components/Settings/Settings";
 import History from "./components/History/History";
@@ -13,21 +14,7 @@ export default function App() {
 
   return (
     <div className="app" style={{ background: gameSettings.background }}>
-      <nav className="navbar">
-        <h1 className="title">Jeu de Mémoire</h1>
-        <div className="nav-links">
-          <Link to="/" className="nav-link">
-            Jeu
-          </Link>
-          <Link to="/settings" className="nav-link">
-            Paramètres
-          </Link>
-          <Link to="/history" className="nav-link">
-            Historique
-          </Link>
-        </div>
-      </nav>
-
+      <Navbar />
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Game settings={gameSettings} />} />

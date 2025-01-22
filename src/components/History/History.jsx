@@ -112,7 +112,7 @@ const History = () => {
                 <p>Durée : {game.duration} secondes</p>
                 <p>Score : {game.score} points</p>
                 <p>
-                  Essais : {game.trials} / {game.maxTrials}
+                  Essais : {game.trials + 1} / {game.maxTrials}
                 </p>
                 <p className="game-status">
                   Statut :{" "}
