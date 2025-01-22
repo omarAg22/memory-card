@@ -1,10 +1,12 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+
+//components
 import Navbar from "./components/Navbar/Navbar";
 import Game from "./components/Game/Game";
 import Settings from "./components/Settings/Settings";
 import History from "./components/History/History";
-import "./App.css";
-import { useState } from "react";
 
 export default function App() {
   const [gameSettings, setGameSettings] = useState({
